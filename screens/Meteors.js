@@ -38,17 +38,7 @@ export default class MeteorScreen extends Component {
                 </View>
             )
         } else {
-            let meteor_arr = Object.keys(this.state.meteors).map(meteor_date => {
-                return this.state.meteors[meteor_date]
-            })
-            let meteors = [].concat.apply([], meteor_arr);
-
-            meteors.forEach(function (element) {
-                let diameter = (element.estimated_diameter.kilometers.estimated_diameter_min + element.estimated_diameter.kilometers.estimated_diameter_max) / 2
-                let threatScore = (diameter / element.close_approach_data[0].miss_distance.kilometers) * 1000000000
-                element.threat_score = threatScore;
-            });
-
+         
             return (
                 <View
                     style={{
